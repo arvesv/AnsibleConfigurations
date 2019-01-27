@@ -1,18 +1,10 @@
 - hosts: localhost
   become: true
-  tasks:
-  - name: Install packages
-    apt: name={{item}}
-    with_items:
-      - nginx
-      - nginx
-      - php-fpm
-      - php7.2-mysql
-      - php-curl
-      - php-gd
-      - php-bcmath
-      - php-zip
-      - php-intl
-      - php-mbstring
-      - php-xml
-      
+  pre_tasks:
+    - name: Update repositories
+      apt: update_cache=yes
+      changes_when: False
+
+
+tasls:
+  - include: tasks/packages.yml

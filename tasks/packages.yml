@@ -1,0 +1,14 @@
+- name: Install packages
+  apt: name={{item}}
+  with_items:
+    - nginx
+    - php-fpm
+    - php7.2-mysql
+    - php-curl
+    - php-gd
+    - php-bcmath
+    - php-zip
+    - php-intl
+    - php-mbstring
+    - php-xml
+      
